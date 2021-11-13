@@ -122,6 +122,13 @@ async function run() {
             const result = await userOrders.deleteOne(query);
             res.json(result);
         })
+        app.delete('/products/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            // console.log(query)
+            const result = await glassCollection.deleteOne(query);
+            res.json(result);
+        })
 
     }
     finally {
